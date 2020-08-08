@@ -18,7 +18,7 @@ namespace EmployeeManagement.Web.Pages
         public IDepartmentService DepartmentService { get; set; }
         public List<Department> Departments { get; set; } = new List<Department>();
 
-        public string DepartmentId { get; set; } //Dropdown list 에 사용
+        //public string DepartmentId { get; set; } //Dropdown list 에 사용 --> CustomInputSelect 생성후 삭제함
 
         [Parameter]
         public string Id { get; set; }
@@ -27,7 +27,7 @@ namespace EmployeeManagement.Web.Pages
         {
             Employee = await EmployeeService.GetEmployee(int.Parse(Id));
             Departments = (await DepartmentService.GetDepartments()).ToList();
-            DepartmentId = Employee.DepartmentId.ToString(); //Dropdown List에서 사용 타입 때문에 오류
+            //DepartmentId = Employee.DepartmentId.ToString(); //Dropdown List에서 사용 타입 때문에 오류
         }
     }
 }
