@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using EmployeeManagement.Web.Services;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,10 @@ namespace EmployeeManagement.Web
             services.AddHttpClient<IEmployeeService, EmployeeService>(client => {
                 client.BaseAddress = new Uri("https://localhost:44359/");
             });
+            services.AddHttpClient<IDepartmentService, DepartmentService>(client => {
+                client.BaseAddress = new Uri("https://localhost:44359/");
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
