@@ -23,8 +23,22 @@ namespace EmployeeManagement.Web.Pages
             //return base.OnInitializedAsync();
             //await Task.Run(LoadEmployees);
             Employees = (await EmployeeService.GetEmployees()).ToList();
-
         }
+
+        protected int SelectedEmployeesCount { get; set; } = 0;
+
+        protected void EmployeeSelectionChanged(bool isSelected)
+        {
+            if (isSelected)
+            {
+                SelectedEmployeesCount++;
+            }
+            else
+            {
+                SelectedEmployeesCount--;
+            }
+        }
+
 
         //private void LoadEmployees()
         //{
