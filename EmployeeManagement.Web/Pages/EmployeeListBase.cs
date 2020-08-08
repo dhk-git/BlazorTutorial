@@ -14,6 +14,8 @@ namespace EmployeeManagement.Web.Pages
         [Inject] //생성자에서 인잭션하지 않을수 있다
         public IEmployeeService EmployeeService{ get; set; }
 
+        public bool ShowFooter { get; set; } = true;
+
         public IEnumerable<Employee> Employees { get; set; }
 
         protected override async Task OnInitializedAsync()
