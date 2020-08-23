@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Web", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Api", "EmployeeManagement.Api\EmployeeManagement.Api.csproj", "{0C532CF1-3DC9-4695-8D13-A362DF2DC1B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgimTech.Components", "ProgimTech.Components\ProgimTech.Components.csproj", "{EFA7D534-79D4-416A-8E2C-E70622A53550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0C532CF1-3DC9-4695-8D13-A362DF2DC1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C532CF1-3DC9-4695-8D13-A362DF2DC1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C532CF1-3DC9-4695-8D13-A362DF2DC1B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFA7D534-79D4-416A-8E2C-E70622A53550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA7D534-79D4-416A-8E2C-E70622A53550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA7D534-79D4-416A-8E2C-E70622A53550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA7D534-79D4-416A-8E2C-E70622A53550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
