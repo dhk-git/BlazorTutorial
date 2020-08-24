@@ -3,7 +3,7 @@
 
 @inherits EditEmplyeeBase
 
-    <EditForm Model="@Employee">
+    <EditForm Model="@EditEmployeeModel" OnInvalidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
         <h3>Edit Employee</h3>
         <ValidationSummary />
@@ -13,8 +13,8 @@
                 First Name
             </label>
             <div class="col-sm-10">
-                <InputText id="fitstName" class="form-control" placeholder="First Name" @bind-Value="Employee.FirstName" />
-                <ValidationMessage For="@(() => Employee.FirstName)" />
+                <InputText id="fitstName" class="form-control" placeholder="First Name" @bind-Value="EditEmployeeModel.FirstName" />
+                <ValidationMessage For="@(() => EditEmployeeModel.FirstName)" />
             </div>
         </div>
         <div class="form-group row">
@@ -22,8 +22,8 @@
                 Last Name
             </label>
             <div class="col-sm-10">
-                <InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="Employee.LastName" />
-                <ValidationMessage For="@(() => Employee.LastName)" />
+                <InputText id="lastName" class="form-control" placeholder="Last Name" @bind-Value="EditEmployeeModel.LastName" />
+                <ValidationMessage For="@(() => EditEmployeeModel.LastName)" />
             </div>
         </div>
         <div class="form-group row">
@@ -31,10 +31,22 @@
                 Email
             </label>
             <div class="col-sm-10">
-                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="Employee.Email" />
-                <ValidationMessage For="@(() => Employee.Email)" />
+                <InputText id="email" class="form-control" placeholder="Email" @bind-Value="EditEmployeeModel.Email" />
+                <ValidationMessage For="@(() => EditEmployeeModel.Email)" />
             </div>
         </div>
+        @* Confirm Email *@
+        <div class="form-group row">
+            <label for="confirmEmail" class="col-sm-2 col-form-label">
+                Confirm Email
+            </label>
+            <div class="col-sm-10">
+                <InputText id="confirmEmail" class="form-control" placeholder="Confirl Email" @bind-Value="EditEmployeeModel.ConfirmEmail" />
+                <ValidationMessage For="@(() => EditEmployeeModel.ConfirmEmail)" />
+            </div>
+        </div>
+
+
         <div class="form-group row">
             <label for="department" class="col-sm-2 col-form-label">
                 Department
@@ -43,7 +55,7 @@
                 @* <InputSelect id="department" @bind-Value="Employee.DepartmentId" class="form-control"> *@
                 @* <InputSelect id="department" @bind-Value="DepartmentId" class="form-control"> *@
                 @* InputSelect 컴포넌트가 int 에 대한 처리가 없어서 오류가 나 CustomInputSelect를 만들고 파싱 부분 오버라이딩함 *@
-                <CustomInputSelect id="department" @bind-Value="Employee.DepartmentId" class="form-control">
+                <CustomInputSelect id="department" @bind-Value="EditEmployeeModel.DepartmentId" class="form-control">
                     @foreach (var dept in Departments)
                     {
                         <option value="@dept.DepartmentId">@dept.DepartmentName</option>
@@ -57,7 +69,7 @@
                 Gender
             </label>
             <div class="col-sm-10">
-                <InputSelect @bind-Value="Employee.Gender" class="form-control">
+                <InputSelect @bind-Value="EditEmployeeModel.Gender" class="form-control">
                     @foreach (var gender in Enum.GetValues(typeof(Gender)))
                     {
                         <option value="@gender">@gender</option>
@@ -70,7 +82,8 @@
                 Date Of Birth
             </label>
             <div class="col-sm-10">
-                <InputDate @bind-Value="Employee.DateOfBrith" class="form-control" />
+                <InputDate @bind-Value="EditEmployeeModel.DateOfBrith" class="form-control" />
             </div>
         </div>
+        <button class="btn btn-primary" type="submit">Submit</button> 
     </EditForm>
