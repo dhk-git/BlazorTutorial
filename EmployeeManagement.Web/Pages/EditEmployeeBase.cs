@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Web.Pages
 {
-    public class EditEmplyeeBase : ComponentBase
+    public class EditEmployeeBase : ComponentBase
     {
         [Inject]
         public IEmployeeService EmployeeService { get; set; }
+
+        public string PageHeaderText { get; set; } //신규등록과 수정시 페이지 헤더 변경
 
         private Employee Employee { get; set; } = new Employee();
 
@@ -39,10 +41,12 @@ namespace EmployeeManagement.Web.Pages
 
             if (employeeId != 0)
             {
+                PageHeaderText = "Edit Employee";
                 Employee = await EmployeeService.GetEmployee(int.Parse(Id));
             }
             else
             {
+                PageHeaderText = "Create Employee";
                 Employee = new Employee
                 {
                     DepartmentId = 1,

@@ -3,7 +3,7 @@
 
 @using ProgimTech.Components
 
-@inherits EditEmplyeeBase
+@inherits EditEmployeeBase
 
 @*<DataAnnotationsValidator />*@
 @* Nested Class Validate *@
@@ -11,7 +11,7 @@
 <EditForm Model="@EditEmployeeModel" OnValidSubmit="HandleValidSubmit">
     @*<ObjectGraphDataAnnotationsValidator />*@
     @*<DataAnnotationsValidator />*@
-    <h3>Edit Employee</h3>
+    <h3>@PageHeaderText</h3>
     <ValidationSummary />
     <hr />
     <div class="form-group row">
