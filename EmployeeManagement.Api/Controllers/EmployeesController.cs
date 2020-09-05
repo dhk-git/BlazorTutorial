@@ -87,7 +87,7 @@ namespace EmployeeManagement.Api.Controllers
                 if (emp != null)
                 {
                     ModelState.AddModelError("email", "Employee email already in use");
-                    return BadRequest(ModelState);
+                    return BadRequest(ModelState); // 오류 반환시 브라우저에서 메시지로 나오지 않고 있음 20200905
                 }
 
                 var createdEmployee = await employeeRepository.AddEmployee(employee);

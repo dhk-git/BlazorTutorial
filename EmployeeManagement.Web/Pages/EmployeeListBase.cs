@@ -25,6 +25,12 @@ namespace EmployeeManagement.Web.Pages
             Employees = (await EmployeeService.GetEmployees()).ToList();
         }
 
+        //삭제된후 데이터를 갱신함 이벤트 핸들러는 razor 페이지에서 등록 
+        protected async Task EmployeeDeleted()
+        {
+            Employees = (await EmployeeService.GetEmployees()).ToList();
+        }
+
         protected int SelectedEmployeesCount { get; set; } = 0;
 
         protected void EmployeeSelectionChanged(bool isSelected)

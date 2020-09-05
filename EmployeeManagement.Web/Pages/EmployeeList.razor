@@ -3,7 +3,7 @@
 
 <h3>EmployeeList</h3>
 <h3>Selected Employees Count - @SelectedEmployeesCount</h3>
-<input type="checkbox" id="showFooter" @bind="ShowFooter"/>
+<input type="checkbox" id="showFooter" @bind="ShowFooter" />
 <label for="showFooter">Show Footer</label>
 @if (Employees == null)
 {
@@ -14,11 +14,15 @@ else
     <div class="card-deck">
         @foreach (var employee in Employees)
         {
-            <DisplayEmployee Employee="employee" ShowFooter="ShowFooter" OnEmployeeSelection="EmployeeSelectionChanged"></DisplayEmployee>
+            <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
+                             OnEmployeeSelection="EmployeeSelectionChanged"
+                             OnEmployeeDeleted="EmployeeDeleted"></DisplayEmployee>
         }
 
     </div>
 }
+
+@* OnEmployeeDeleted="EmployeeDeleted" 이부분이 이벤트 핸들러 등록하는 부분임 *@
 
 @code {
 
