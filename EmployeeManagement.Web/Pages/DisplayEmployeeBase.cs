@@ -24,12 +24,28 @@ namespace EmployeeManagement.Web.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        protected async Task Delete_Click()
+        protected ProgimTech.Components.ConfirmBase DeleteConfirmation { get; set; } 
+
+        protected void Delete_Click()
         {
-            await EmployeeService.DeleteEmployee(Employee.EmployeeId);
-            await OnEmployeeDeleted.InvokeAsync(Employee.EmployeeId); //삭제후 이벤트 발생 
-            //NavigationManager.NavigateTo("/", true);
+            DeleteConfirmation.Show();
         }
+
+        protected async Task ConfirmDelete_Click(bool deleteConfirmed)
+        {
+            if (deleteConfirmed)
+            {
+                await EmployeeService.DeleteEmployee(Employee.EmployeeId);
+                await OnEmployeeDeleted.InvokeAsync(Employee.EmployeeId);
+            }
+        }
+
+        //protected async Task Delete_Click()
+        //{
+        //    await EmployeeService.DeleteEmployee(Employee.EmployeeId);
+        //    await OnEmployeeDeleted.InvokeAsync(Employee.EmployeeId); //삭제후 이벤트 발생 
+        //    //NavigationManager.NavigateTo("/", true);
+        //}
 
         protected async Task CheckBoxChanged(ChangeEventArgs e)
         {
