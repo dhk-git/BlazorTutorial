@@ -1,17 +1,19 @@
 ﻿@*<input id="firstName" required="@Required" maxlength="@Maxlength" size="@Size"
        placeholder="@Placeholder"/>*@
 
-<input id="firstName" @attributes="InputAttributes" value="@Value" />
+@* Parent에서 던져주는 속성값을 적용하기  placeholder가 attributes 보다 앞에 있어야함 *@
+<input id="firstName" placeholder="Default Value" @attributes="InputAttributes"    value="@Value" />
+
 
 @code{
-    [Parameter]
+    [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> InputAttributes { get; set; } =
         new Dictionary<string, object>
         {
-            { "required", "required" },
-            { "placeholder", "Child Component Placeholder" },
-            { "size", "100" },
-            { "maxlength", "15" }
+            //{ "required", "required" },
+            //{ "placeholder", "Child Component Placeholder" },
+            //{ "size", "100" },
+            //{ "maxlength", "15" }
         };
 
     [Parameter]

@@ -1,17 +1,19 @@
 ﻿@page "/pc"
+@*<ChildComponent Placeholder="Child Component Placeholder"
+    Required="requird" Maxlength="100" Size="50"></ChildComponent>*@
 
-@*<ChildComponent Placeholder="Child Component Placeholder" 
-                Required="requird" Maxlength="100" Size="50"></ChildComponent>*@
+@*<ChildComponent InputAttributes="attributesFromParent" Value="Parent Value"></ChildComponent>*@
 
-<ChildComponent InputAttributes="attributesFromParent" Value="Parent Value"></ChildComponent>
+<ChildComponent Value="Parent Value" placeholder="Parent Component Placeholder" 
+    required="requird" maxlength="100" someattribute="somevalue"></ChildComponent>
 
 @code{
-    public Dictionary<string, object> attributesFromParent { get; set; } =
-        new Dictionary<string, object>
-        {
-            { "required", "required" },
-            { "placeholder", "Child Component Placeholder" },
-            { "size", "100" },
-            { "maxlength", "15" }
-        };
+    //public Dictionary<string, object> attributesFromParent { get; set; } =
+    //    new Dictionary<string, object>
+    //    {
+    //        { "required", "required" },
+    //        { "placeholder", "Child Component Placeholder" },
+    //        { "size", "100" },
+    //        { "maxlength", "15" }
+    //    };
 }
