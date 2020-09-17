@@ -1,0 +1,29 @@
+﻿@*<input id="firstName" required="@Required" maxlength="@Maxlength" size="@Size"
+       placeholder="@Placeholder"/>*@
+
+<input id="firstName" @attributes="InputAttributes" value="@Value" />
+
+@code{
+    [Parameter]
+    public Dictionary<string, object> InputAttributes { get; set; } =
+        new Dictionary<string, object>
+        {
+            { "required", "required" },
+            { "placeholder", "Child Component Placeholder" },
+            { "size", "100" },
+            { "maxlength", "15" }
+        };
+
+    [Parameter]
+    public string Value { get; set; } = "Child Value";
+
+    //Dictionary로 파라메터 바꾸기전 
+    //[Parameter]
+    //public string Required { get; set; }
+    //[Parameter]
+    //public string Maxlength { get; set; }
+    //[Parameter]
+    //public string Size { get; set; }
+    //[Parameter]
+    //public string Placeholder { get; set; }
+}
