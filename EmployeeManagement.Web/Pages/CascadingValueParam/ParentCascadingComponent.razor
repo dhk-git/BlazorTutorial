@@ -1,0 +1,13 @@
+﻿@page "/pc1"
+@using EmployeeManagement.Web.Pages.CascadingValueParam
+
+
+<h3 style="@Style">ParentCascaingComponent</h3>
+<CascadingValue Value="@Style">
+    <ChildCascadingCompenent></ChildCascadingCompenent>
+</CascadingValue>
+
+
+@code {
+    public string Style { get; set; } = "color:red";
+}
