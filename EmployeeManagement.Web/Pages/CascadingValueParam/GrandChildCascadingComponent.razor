@@ -1,7 +1,7 @@
 ﻿
 @using EmployeeManagement.Web.Pages.CascadingValueParam
 
-<h3 style="@ElementStyle; @H1Border">GrandChildCascadingComponent</h3>
+<h3 style="@ElementStyle; @H1Border">GrandChildCascadingComponent - @Counter</h3>
 
 
 @code {
@@ -9,4 +9,6 @@
     public string ElementStyle { get; set; }
     [CascadingParameter(Name = "BorderStyle")]
     public string H1Border { get; set; }
+    [CascadingParameter(Name = "Counter")]
+    public int Counter { get; set; }
 }

@@ -1,11 +1,17 @@
 ﻿@page "/pc1"
 @using EmployeeManagement.Web.Pages.CascadingValueParam
 
+<button class="btn btn-primary" @onclick="IncrementCounter">
+    Increment Counter
+</button>
 
-<h3 style="@Style">ParentCascaingComponent</h3>
-<CascadingValue Value="@Style" Name="ColorStyle">
-    <CascadingValue Value="@BorderStyle" Name="BorderStyle">
-        <ChildCascadingCompenent></ChildCascadingCompenent>
+<h3 style="@Style">ParentCascaingComponent - @Counter</h3>
+
+<CascadingValue Value="@Counter" Name="Counter" IsFixed="true">
+    <CascadingValue Value="@Style" Name="ColorStyle" IsFixed="true">
+        <CascadingValue Value="@BorderStyle" Name="BorderStyle" IsFixed="true">
+            <ChildCascadingCompenent></ChildCascadingCompenent>
+        </CascadingValue>
     </CascadingValue>
 </CascadingValue>
 
@@ -13,4 +19,9 @@
 @code {
     public string Style { get; set; } = "color:red";
     public string BorderStyle { get; set; } = "border:1px solid red";
+    public int Counter { get; set; }
+    private void IncrementCounter()
+    {
+        Counter += 1;
+    }
 }
