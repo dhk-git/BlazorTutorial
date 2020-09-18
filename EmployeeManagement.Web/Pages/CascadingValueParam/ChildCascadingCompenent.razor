@@ -1,10 +1,12 @@
 ﻿
 @using EmployeeManagement.Web.Pages.CascadingValueParam
 
-<h3 style="@ElementStyle">ChildCascadingCompenent</h3>
+<h1 style="@ElementStyle; @H1Border">ChildCascadingCompenent</h1>
 <GrandChildCascadingComponent></GrandChildCascadingComponent>
 
 @code {
-    [CascadingParameter]
+    [CascadingParameter(Name = "ColorStyle")]
     public string ElementStyle { get; set; }
+    [CascadingParameter(Name = "BorderStyle")]
+    public string H1Border { get; set; }
 }

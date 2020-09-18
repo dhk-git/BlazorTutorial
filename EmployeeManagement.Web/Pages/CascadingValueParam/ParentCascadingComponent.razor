@@ -3,11 +3,14 @@
 
 
 <h3 style="@Style">ParentCascaingComponent</h3>
-<CascadingValue Value="@Style">
-    <ChildCascadingCompenent></ChildCascadingCompenent>
+<CascadingValue Value="@Style" Name="ColorStyle">
+    <CascadingValue Value="@BorderStyle" Name="BorderStyle">
+        <ChildCascadingCompenent></ChildCascadingCompenent>
+    </CascadingValue>
 </CascadingValue>
 
 
 @code {
     public string Style { get; set; } = "color:red";
+    public string BorderStyle { get; set; } = "border:1px solid red";
 }
